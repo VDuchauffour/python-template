@@ -51,26 +51,3 @@ Answer the prompts (project name, license, GitHub owner, etc.) and Copier render
 | `license`             | choice | `MIT`               | MIT, Apache-2.0, GPL-3.0, BSD-3-Clause, None       |
 | `copyright_holder`    | str    | `= author_name`     | Asked only for MIT / GPL-3.0 / BSD-3-Clause        |
 | `publish_to_pypi`     | bool   | `false`             | Adds a release-triggered PyPI publish workflow     |
-
-## Repository layout
-
-```text
-.
-├── copier.yml                 # template definition (prompts, excludes, tasks)
-├── template/                  # everything that gets rendered into a project
-│   ├── pyproject.toml.jinja
-│   ├── LICENSE.jinja
-│   ├── README.md.jinja
-│   ├── Makefile
-│   ├── .python-version
-│   ├── src/{{ package_name }}/  # dynamic package directory
-│   ├── .github/               # workflows, renovate, release-drafter, ...
-│   ├── .vscode/
-│   └── ...
-└── .github/workflows/
-    └── pr-enhancement.yml     # CI for this template repo (PR title/label rules)
-```
-
-## License
-
-MIT.
