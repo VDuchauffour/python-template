@@ -103,3 +103,19 @@ To ensure that you follow the development workflow, please setup the pre-commit 
 ```shell
 uv run pre-commit install
 ```
+
+### AI agent skills
+
+This project pins [agent skills](https://github.com/vercel-labs/skills) for the Astral Python toolchain (`ruff`, `ty`, `uv`) in `skills-lock.json`. Install them so AI coding agents follow the project's tooling conventions:
+
+```shell
+npx skills add astral-sh/claude-code-plugins --skill ruff --skill ty --skill uv
+```
+
+List installed skills with `npx skills list`; update them with `npx skills update`.
+
+On a fresh clone, restore the pinned skills from the lock file:
+
+```shell
+npx skills experimental_install
+```

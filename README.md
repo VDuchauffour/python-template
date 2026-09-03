@@ -35,6 +35,25 @@ Answer the prompts (project name, license, GitHub owner, etc.) and Copier render
 - **Ruff** for linting and formatting
 - **ty** for type checking
 - Optional **PyPI publish** workflow (toggle via `publish_to_pypi`)
+- **Agent skills** — AI coding-agent skills for the Astral toolchain (`ruff`, `ty`, `uv`), pinned in `skills-lock.json`
+
+## AI agent skills
+
+The template ships a `skills-lock.json` ([skills](https://github.com/vercel-labs/skills) CLI lockfile) pinning three agent skills from [`astral-sh/claude-code-plugins`](https://github.com/astral-sh/claude-code-plugins): **ruff**, **ty**, and **uv**. Each skill is a `SKILL.md` instruction set that teaches AI coding agents (Claude Code, OpenCode, Codex, Cursor, ...) how to correctly drive the tools this template configures.
+
+Install them in a rendered project:
+
+```sh
+npx skills add astral-sh/claude-code-plugins --skill ruff --skill ty --skill uv
+```
+
+Skills are installed into `.agents/skills/` with symlinks from each detected agent's directory (e.g. `.claude/skills/`); both paths are gitignored. Keep `skills-lock.json` under version control so teammates and agents get the same skill set — list what is installed with `npx skills list`, and update with `npx skills update`.
+
+On a fresh clone, restore the pinned skills from the lock file:
+
+```sh
+npx skills experimental_install
+```
 
 ## Template options
 
