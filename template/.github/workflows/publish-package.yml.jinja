@@ -25,9 +25,11 @@ jobs:
           enable-cache: true
       - name: Install Python {{ python_version }}
         run: uv python install {{ python_version }}
+      - name: Install just
+        uses: extractions/setup-just@v4
       - name: Build project
         run: |
-          make install
+          just install
           uv build --sdist --wheel .
       - name: Publish project
         run: |-

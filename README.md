@@ -1,6 +1,6 @@
 # Python Copier Template
 
-A [Copier](https://copier.readthedocs.io) template for scaffolding Python projects with batteries included: CI/CD, pre-commit hooks, automated dependency updates, and a `Makefile` task runner.
+A [Copier](https://copier.readthedocs.io) template for scaffolding Python projects with batteries included: CI/CD, pre-commit hooks, automated dependency updates, and a `justfile` task runner.
 
 ## Usage
 
@@ -31,7 +31,7 @@ Answer the prompts (project name, license, GitHub owner, etc.) and Copier render
 - **CI/CD** via GitHub Actions — ruff lint/format, ty type check, tests with coverage (pytest → Codecov), release drafter, conventional PR titles
 - **Pre-commit** hooks — trailing whitespace, yamlfix, taplo, mdformat, ruff, prettier
 - **Renovate** config for automated dependency updates
-- **Makefile** recipes for common tasks (`make ci`, `make lint`, `make tests`, ...)
+- **justfile** recipes for common tasks (`just lint`, `just tests`, ...)
 - **Ruff** for linting and formatting
 - **ty** for type checking
 - Optional **PyPI publish** workflow (toggle via `publish_to_pypi`)

@@ -25,11 +25,13 @@ jobs:
           enable-cache: true
       - name: Install Python {{ python_version }}
         run: uv python install {{ python_version }}
+      - name: Install just
+        uses: extractions/setup-just@v4
       - name: Install dependencies
-        run: make install
+        run: just install
       - name: Run linting
         run: |
-          make check-lint
+          just check-lint
 
   tests:
     name: Run tests ({% raw %}${{ matrix.os }}{% endraw %}, Python {% raw %}${{ matrix.python-version }}{% endraw %})
@@ -53,9 +55,11 @@ jobs:
           enable-cache: true
       - name: Install Python {% raw %}${{ matrix.python-version }}{% endraw %}
         run: uv python install {% raw %}${{ matrix.python-version }}{% endraw %}
+      - name: Install just
+        uses: extractions/setup-just@v4
       - name: Run tests
         run: |
-          make tests
+          just tests
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v6
         with:
