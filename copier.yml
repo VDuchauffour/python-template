@@ -94,3 +94,6 @@ _tasks:
     author_email %}-c user.email="{{ author_email }}" {% endif %}commit -q -m
     'Initial commit' || echo 'Could not create the initial commit -- is git
     configured?'; }{% endif %}
+  - uv sync || echo "Could not sync dependencies -- is uv installed?";
+  - '{% if init_git_repo %}uv run pre-commit install || echo "Could not install pre-commit hooks";{% endif
+    %}'
